@@ -236,7 +236,7 @@ function getPayments() {
 
 //左上侧版本标识控制
 function markupVension(){
-	var imgSrcList = {
+/*	var imgSrcList = {
 				base:'<?=skin_url()?>/css/blue/img/icon_v_b.png',	//基础版正式版
 				baseExp:'<?=skin_url()?>/css/blue/img/icon_v_b_e.png',	//基础版体验版
 				baseTrial:'<?=skin_url()?>/css/blue/img/icon_v_b_t.png',	//基础版试用版
@@ -265,7 +265,7 @@ function markupVension(){
 			case 4: imgModel.attr('src',imgSrcList.standardExp).attr('alt','标准版体验版');//标准版
 				break;
 		};
-	};
+	};*/
 	
 	//$('#col-side').prepend(imgModel);
 };
@@ -284,7 +284,6 @@ var _hmt = _hmt || [];
 <body>
 <div id="container" class="cf">
   <div id="col-side">
-    <img id="icon-vension" alt="试用版" src="<?=skin_url()?>/css/<?=skin()?>/img/icon_v_b_t.png"> 
     <ul id="nav" class="cf">
     <li class="item item-vip"> <a href="javascript:void(0);" class="vip main-nav">高级<span class="arrow">&gt;</span></a>
         <div class="sub-nav-wrap group-nav group-nav-t0 vip-nav cf">

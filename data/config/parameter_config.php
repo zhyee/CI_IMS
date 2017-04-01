@@ -1,6 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed'); 
-define('COMPANYNAME','xxxxx集团公司');
-define('COMPANYADDRESS','上海总仓');
-define('COMPANYTEL','21222222222');
-define('COMPANYFAX','123');
-define('POSTCODE','213');
+define('COMPANYNAME','四川省南方矿业投资有限公司');
+define('COMPANYADDRESS','四川成都市郫县西部国际装饰石材城6栋35号');
+define('COMPANYTEL','18784090789');
+define('COMPANYFAX','400-888888');
+define('POSTCODE','610000');
