@@ -14,13 +14,6 @@
 <script src="<?=skin_url()?>/js/common/grid.js?ver=20140815"></script>
 <script src="<?=skin_url()?>/js/common/plugins.js?ver=20140815"></script>
 <script src="<?=skin_url()?>/js/common/plugins/jquery.dialog.js?self=true&ver=20140815"></script>
-<script type="text/javascript">
-try{
-	document.domain = '<?=base_url()?>';
-}catch(e){
-	//console.log(e);
-}
-</script>
 
 <script type="text/javascript">
 var WDURL = "";
@@ -232,43 +225,44 @@ function getPayments() {
 	} else {
 		SYSTEM.paymentInfo = [];
 	}
-};
+}
 
 //左上侧版本标识控制
 function markupVension(){
-/*	var imgSrcList = {
-				base:'<?=skin_url()?>/css/blue/img/icon_v_b.png',	//基础版正式版
-				baseExp:'<?=skin_url()?>/css/blue/img/icon_v_b_e.png',	//基础版体验版
-				baseTrial:'<?=skin_url()?>/css/blue/img/icon_v_b_t.png',	//基础版试用版
-				standard:'<?=skin_url()?>/css/blue/img/icon_v_s.png', //标准版正式版
-				standardExp:'<?=skin_url()?>/css/blue/img/icon_v_s_e.png', //标准版体验版
-				standardTrial :'<?=skin_url()?>/css/blue/img/icon_v_s_t.png' //标准版试用版
-			};
-	var imgModel = $("<img id='icon-vension' src='' alt=''/>");
-	if(SYSTEM.siType === 1){
-		switch(SYSTEM.siVersion){
-			case 1:	imgModel.attr('src',imgSrcList.baseTrial).attr('alt','基础版试用版');
-				break;
-			case 2:	imgModel.attr('src',imgSrcList.baseExp).attr('alt','免费版（百度版）');
-				break;
-			case 3: imgModel.attr('src',imgSrcList.base).attr('alt','基础版');//标准版
-				break;
-			case 4: imgModel.attr('src',imgSrcList.baseExp).attr('alt','基础版体验版');//标准版
-				break;
-		};
-	} else {
-		switch(SYSTEM.siVersion){
-			case 1:	imgModel.attr('src',imgSrcList.standardTrial).attr('alt','标准版试用版');
-				break;
-			case 3: imgModel.attr('src',imgSrcList.standard).attr('alt','标准版');//标准版
-				break;
-			case 4: imgModel.attr('src',imgSrcList.standardExp).attr('alt','标准版体验版');//标准版
-				break;
-		};
-	};*/
+
+//	var imgSrcList = {
+//				base:'<?//=skin_url()?>///css/blue/img/icon_v_b.png',	//基础版正式版
+//				baseExp:'<?//=skin_url()?>///css/blue/img/icon_v_b_e.png',	//基础版体验版
+//				baseTrial:'<?//=skin_url()?>///css/blue/img/icon_v_b_t.png',	//基础版试用版
+//				standard:'<?//=skin_url()?>///css/blue/img/icon_v_s.png', //标准版正式版
+//				standardExp:'<?//=skin_url()?>///css/blue/img/icon_v_s_e.png', //标准版体验版
+//				standardTrial :'<?//=skin_url()?>///css/blue/img/icon_v_s_t.png' //标准版试用版
+//			};
+//	var imgModel = $("<img id='icon-vension' src='' alt=''/>");
+//	if(SYSTEM.siType === 1){
+//		switch(SYSTEM.siVersion){
+//			case 1:	imgModel.attr('src',imgSrcList.baseTrial).attr('alt','基础版试用版');
+//				break;
+//			case 2:	imgModel.attr('src',imgSrcList.baseExp).attr('alt','免费版（百度版）');
+//				break;
+//			case 3: imgModel.attr('src',imgSrcList.base).attr('alt','基础版');//标准版
+//				break;
+//			case 4: imgModel.attr('src',imgSrcList.baseExp).attr('alt','基础版体验版');//标准版
+//				break;
+//		}
+//	} else {
+//		switch(SYSTEM.siVersion){
+//			case 1:	imgModel.attr('src',imgSrcList.standardTrial).attr('alt','标准版试用版');
+//				break;
+//			case 3: imgModel.attr('src',imgSrcList.standard).attr('alt','标准版');//标准版
+//				break;
+//			case 4: imgModel.attr('src',imgSrcList.standardExp).attr('alt','标准版体验版');//标准版
+//				break;
+//		}
+//	}
 	
 	//$('#col-side').prepend(imgModel);
-};
+}
 
 </script>
 <!--<script>
@@ -381,7 +375,7 @@ var _hmt = _hmt || [];
       	<li class="qq"><a href="http://wpa.qq.com/msgrd?v=3&uin=357058607&site=qq&menu=yes" target="_blank">QQ咨询：357058607</a></li>
       	<li class="space">|</li>
         
-      	<li class="telphone">电话：13616216627</li>
+      	<li class="telphone">电话：18784090789</li>
       
         <li class="space">|</li>
       	<li id="sysSkin">换肤</li>

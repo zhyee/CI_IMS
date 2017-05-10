@@ -35,7 +35,44 @@ class Inventory extends CI_Controller {
 		die(json_encode($data)); 
 	}
 
-	
+	/* 支持pjax 查询库存 */
+
+	public function pjax_lists()
+    {
+        $aid = intval($this->input->get('aid'));
+        $aid_en = intval($this->input->get('aid_en'));
+        $callback = trim($this->input->get('callback'));
+
+        if ($aid)
+        {
+            $where = " AND a.aid = $aid ";
+        }
+
+        if ($aid_en)
+        {
+            $where = " AND a.aid_en = $aid_en";
+        }
+
+        $order = ' order by a.id desc';
+
+        $list = $this->data_model->inventory($where, $order);
+
+        if (!$list)
+        {
+            $list = array();
+        }
+
+        if ($callback)
+        {
+            echo $callback . '(' . json_encode($list) . ');';
+        }
+        else
+        {
+            echo json_encode($list);
+        }
+    }
+
+
 	//库存查询
 	public function lists() {
 		$page        = max(intval($this->input->get_post('page',TRUE)),1);

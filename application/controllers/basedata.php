@@ -145,6 +145,8 @@ class Basedata extends CI_Controller {
 			$info['quantity']     = (float)$data['quantity'];
 			$info['unitCost']     = (float)$data['unitcost'];
 			$info['amount']       = (float)$data['amount'];
+            $info['aid']          = (int)$data['aid'];
+            $info['aid_en']       =  (int)$data['aid_en'];
 			die('{"status":200,"msg":"success","data":'.json_encode($info).'}');
 		}
 	}

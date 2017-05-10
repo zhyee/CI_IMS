@@ -61,7 +61,27 @@ class Settings extends CI_Controller {
 	
 	//新增商品
 	public function goods_manage() {
-		$this->load->view('settings/goods_manage');	
+	    $res = $this->db->query("SELECT DISTINCT aid,aid_en FROM ci_goods")->result_array();
+        $aidArr = array();
+        $aidArr_en = array();
+        if ($res)
+        {
+            foreach ($res as $row)
+            {
+                if ((int)$row['aid'] > 0)
+                {
+                    $aidArr[] = (int)$row['aid'];
+                }
+
+                if ((int)$row['aid_en'] > 0)
+                {
+                    $aidArr_en[] = (int)$row['aid_en'];
+                }
+            }
+        }
+        $data['aidArr'] = json_encode($aidArr);
+        $data['aidArr_en'] = json_encode($aidArr_en);
+		$this->load->view('settings/goods_manage', $data);
 	}
 	
 	//结算方式选择

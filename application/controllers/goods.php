@@ -28,6 +28,8 @@ class Goods extends CI_Controller {
 		$info['quantity']   = $data['quantity'] = (float)$this->input->post('quantity',TRUE);
 		$info['amount']     = $data['amount'] = (float)$this->input->post('amount',TRUE);
 		$data['goods']      = $info['number'].' '.$info['name'].'_'.$data['spec'];
+        $info['aid']        = $data['aid'] = (int)$this->input->post('aid', TRUE);
+        $info['aid_en']     = $data['aid_en'] = (int)$this->input->post("aid_en", TRUE);
 		
 		strlen($data['name']) < 1 && die('{"status":-1,"msg":"名称不能为空"}'); 
 		$data['categoryid'] < 1   && die('{"status":-1,"msg":"请选择商品分类"}'); 

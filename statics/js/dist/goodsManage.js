@@ -119,6 +119,8 @@ function getCustomerData() {
 			unitcost: Public.currencyToNum($("#unitCost").val()),
 			amount: Public.currencyToNum($("#amount").val()),
 			propertys: JSON.stringify(e),
+			aid: $("#relate-goods").val(),
+			aid_en: $("#relate-goods-en").val(),
 			remark: $("#note").val() == $("#note")[0].defaultValue ? "" : $("#note").val()
 		};
 	if (SYSTEM.enableStorage) {
@@ -219,7 +221,7 @@ function initField() {
 		$("#length").val(rowData.length);
 		$("#width").val(rowData.width);
 		$("#height").val(rowData.height);
-		$("#weight").val(rowData.weight)
+		$("#weight").val(rowData.weight);
 	} else $("#storage").data("defItem", 0);
 	//if (!api.opener.parent.SYSTEM.isAdmin) {
 //		rights.AMOUNT_INAMOUNT || $("#purchasePrice").closest("li").hide();

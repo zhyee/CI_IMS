@@ -48,6 +48,8 @@ var basedata_goods_query = "<?=site_url('basedata/goods_query')?>";
 var basedata_goods_checkname = "<?=site_url('basedata/goods_checkname')?>";
 var basedata_goods_getnextno = "<?=site_url('basedata/goods_getnextno')?>";
 var goods_save = "<?=site_url('goods/save')?>";
+var aidArr = <?=$aidArr?>;
+var aidArr_en = <?=$aidArr_en ?>;
 
 </script>
 <link rel="stylesheet" href="<?=skin_url()?>/js/common/plugins/validator/jquery.validator.css">
@@ -136,6 +138,25 @@ body{background: #fff;}
     				<div class="label-wrap"><label for="amount">期初总价</label></div>
     				<div class="ctn-wrap"><input type="text" value="" class="ui-input" name="amount" id="amount"></div>
     			</li>
+
+				<li class="row-item">
+					<div class="label-wrap"><label for="relate-goods" style="font-size: 6px">关联产品(中文站)</label></div>
+					<div class="ctn-wrap">
+						<select style="height: 30px;" name="aid" id="relate-goods" class="ui-input">
+							<option value="0">-- 请选择关联的门户产品 --</option>
+						</select>
+					</div>
+				</li>
+
+				<li class="row-item">
+					<div class="label-wrap"><label for="relate-goods-en" style="font-size: 6px">关联产品(英文站)</label></div>
+					<div class="ctn-wrap">
+						<select style="height: 30px;" name="aid_en" id="relate-goods-en" class="ui-input">
+							<option value="0">-- 请选择关联的门户产品 --</option>
+						</select>
+					</div>
+				</li>
+
     		</ul>
     		<div id="jdInfo" class="jdInfo cf dn">
     			<h3>维护京东仓储信息</h3>
@@ -183,7 +204,123 @@ body{background: #fff;}
       <input type="text" class="textbox storageAuto" name="storage" autocomplete="off">
     </div>
 </div>
-<script src="<?=skin_url()?>/js/dist/goodsManage.js?2"></script>
+<script src="<?=skin_url()?>/js/dist/goodsManage.js?3"></script>
 
+<script>
+	function relate_goods(obj) {
+		if (typeof obj == 'object' && obj.length > 0)
+		{
+
+			var rowId = frameElement.api.data.rowId;
+			if (rowId > 0)
+			{
+				$.ajax({
+					url : basedata_goods_query,
+					data : {id: rowId},
+					type : 'POST',
+					dataType : 'JSON',
+					success : function (rt) {
+						if (rt.status = 200)
+						{
+							var aid = rt.data.aid;
+							var html = '';
+							for (var i in obj)
+							{
+								if ($.inArray(parseInt(obj[i].id), aidArr) < 0 || aid == obj[i].id)
+								{
+									html += '<option value="'+ obj[i].id +'"';
+									if (aid == obj[i].id)
+									{
+										html += ' selected';
+									}
+									html += '>'+ obj[i].title +'</option>\n';
+								}
+							}
+
+							$('#relate-goods').append(html);
+						}
+					}
+				});
+
+			}
+			else
+			{
+				var html = '';
+				for (var i in obj) {
+					if ($.inArray(parseInt(obj[i].id), aidArr) < 0) {
+						html += '<option value="' + obj[i].id + '"';
+						html += '>' + obj[i].title + '</option>\n';
+					}
+				}
+
+				$('#relate-goods').append(html);
+			}
+		}
+	}
+
+	function relate_goods_en(obj) {
+		if (typeof obj == 'object' && obj.length > 0)
+		{
+
+			var rowId = frameElement.api.data.rowId;
+			if (rowId > 0)
+			{
+				$.ajax({
+					url : basedata_goods_query,
+					data : {id: rowId},
+					type : 'POST',
+					dataType : 'JSON',
+					success : function (rt) {
+						if (rt.status = 200)
+						{
+							var aid_en = rt.data.aid_en;
+							var html = '';
+							for (var i in obj)
+							{
+								if ($.inArray(parseInt(obj[i].id), aidArr) < 0 || aid_en == obj[i].id)
+								{
+									html += '<option value="'+ obj[i].id +'"';
+									if (aid_en == obj[i].id)
+									{
+										html += ' selected';
+									}
+									html += '>'+ obj[i].title +'</option>\n';
+								}
+							}
+
+							$('#relate-goods-en').append(html);
+						}
+					}
+				});
+
+			}
+			else
+			{
+				var html = '';
+				for (var i in obj) {
+					if ($.inArray(parseInt(obj[i].id), aidArr) < 0) {
+						html += '<option value="' + obj[i].id + '"';
+						html += '>' + obj[i].title + '</option>\n';
+					}
+				}
+
+				$('#relate-goods-en').append(html);
+			}
+		}
+	}
+
+
+	$(function () {
+		var scriptNode = document.createElement('script');
+		scriptNode.src = 'http://nfkycn.eonfox.cc/plus/ajax_goods.php?typeid=3&callback=relate_goods';
+		scriptNode.type = 'text/javascript';
+		document.body.appendChild(scriptNode);
+
+		var node2 = document.createElement('script');
+		node2.src = 'http://nfkyen.eonfox.cc/plus/ajax_goods.php?typeid=3&callback=relate_goods_en';
+		node2.type = 'text/javascript';
+		document.body.appendChild(node2);
+	});
+</script>
 </body>
 </html>
